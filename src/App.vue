@@ -5,14 +5,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'App',
-    data () {
-      return {
-        radio: '1'
-      };
+export default {
+  name: 'App',
+  data () {
+    return {
+      radio: '1'
     }
   }
+}
 </script>
 
 <style lang="scss">

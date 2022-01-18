@@ -8,7 +8,8 @@
       <!-- <h3 style="color: #fff">首页</h3> -->
       <el-breadcrumb s>
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item :to="current.path" v-if="current">{{ current.label }}</el-breadcrumb-item>
+        <el-breadcrumb-item :to="current.path"
+                            v-if="current">{{ current.label }}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="r-content">
@@ -19,8 +20,8 @@
                alt="">
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>退出</el-dropdown-item>
+          <el-dropdown-item @click.native="tishi">个人中心</el-dropdown-item>
+          <el-dropdown-item @click.native="quit">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -29,6 +30,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { Message } from 'element-ui'
 export default {
   name: 'CommonHeader',
   data () {
@@ -39,6 +41,15 @@ export default {
   methods: {
     handleMenu () {
       this.$store.commit('collapseMenu')
+    },
+    tishi () {
+      Message.error('没有开发')
+    },
+    quit () {
+      // console.log('退出')
+      localStorage.removeItem('token')
+      // history.go(0)
+      this.$router.push({ name: 'register' })
     }
   },
   computed: {
@@ -73,15 +84,15 @@ export default {
 }
 </style>
 <style lang="scss">
-.el-breadcrumb__item{
-    .el-breadcrumb__inner{
-        color: #666;
-        font-weight: normal;
+.el-breadcrumb__item {
+  .el-breadcrumb__inner {
+    color: #666;
+    font-weight: normal;
+  }
+  &:last-child {
+    .el-breadcrumb__inner {
+      color: white;
     }
-    &:last-child{
-        .el-breadcrumb__inner{
-        color: white;
-    }
-    }
+  }
 }
 </style>

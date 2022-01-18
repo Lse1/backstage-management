@@ -17,37 +17,37 @@ import { mapState, mapMutations } from 'vuex'
 export default {
   computed: {
     ...mapState({
-      tags: (state) => state.tab.tabList,
+      tags: (state) => state.tab.tabList
     })
   },
   methods: {
     ...mapMutations({
-      close: "closeTag"
+      close: 'closeTag'
     }),
     changeMenu (item) {
       this.$router.push({ name: item.name })
-      this.$store.commit("selectMenu", item)
+      this.$store.commit('selectMenu', item)
     },
     handleClose (tag, index) {
-      let length = this.tags.length - 1
+      const length = this.tags.length - 1
       this.close(tag)
-      //判断是否是最后一个
+      // 判断是否是最后一个
 
       // 第一种情况
       if (tag.name !== this.$route.name) {
-        return;
+        return
       }
       if (index === length) {
-        //往左边跳转
+        // 往左边跳转
         this.$router.push({
           name: this.tags[index - 1].name
         })
       } else {
-        //往右边跳转
+        // 往右边跳转
         this.$router.push({ name: this.tags[index].name })
       }
     }
-  },
+  }
 }
 </script>
 

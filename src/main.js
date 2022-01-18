@@ -11,7 +11,7 @@ import {
   Menu, MenuItem, MenuItemGroup, Submenu, Main, Dropdown,
   DropdownMenu, DropdownItem, Row, Col, Card, Table, TableColumn,
   Tag, Breadcrumb, BreadcrumbItem, Pagination, Dialog, Form, FormItem,
-  Input
+  Input, Option, Message
 } from 'element-ui'
 Vue.config.productionTip = false
 // Vue.use(ElementUI)
@@ -42,8 +42,11 @@ Vue.use(Dialog)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
+Vue.use(Option)
 Vue.component(Select.name, Select)
 Vue.component(Radio.name, Radio)
+
+Vue.prototype.$message = Message
 
 if (process.env.NODE_ENV === 'development') require('@/api/mock')
 new Vue({

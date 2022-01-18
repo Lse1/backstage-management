@@ -8,15 +8,13 @@ import Network from './network'
 //
 // 3: ipad
 // export const getBanner = () => Network.get('/banner?type=2')
-export const getBanner = () => {
+export const getBanner = (data) => {
   // console.log('result')
   return new Promise(function (resolve, reject) {
     // console.log('123')
-    Network.get('/tabledata')
+    Network.get('/tabledata', data)
       .then(function (result) {
         resolve(result)
-        // console.log('1234')
-        // console.log(result)
       })
       .catch(function (err) {
         // console.log('12345')
@@ -24,6 +22,8 @@ export const getBanner = () => {
       })
   })
 }
+export const getLogin = (data) => Network.post('/login', data)
+export const getTableName = () => Network.get('/table_name')
 export const getUserdata = () => Network.get('/userdata')
 export const getVideodata = () => Network.get('/videodata')
 export const getOrderdata = () => Network.get('/orderdata')
@@ -31,6 +31,9 @@ export const getDate = () => Network.get('/date')
 export const getCommodity = (data) => Network.get('/commodity/data', data)
 export const getCommodityCount = (data) => Network.get('/commodity/count', data)
 export const getCommodityIncrease = (data) => Network.get('/commodity/increase', data)
+export const getCommodityDelete = (data) => Network.get('/commodity/delete', data)
+export const getCommodityRevise = (data) => Network.get('/commodity/revise', data)
+export const getCommoditySearch = (data) => Network.get('/commodity/search', data)
 export const getPost = (data) => {
   // console.log('result')
   return new Promise(function (resolve, reject) {

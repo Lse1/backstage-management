@@ -70,7 +70,8 @@
 
 <script>
 // import { getHome } from '../../api/data'
-import { getBanner, getUserdata, getVideodata, getOrderdata, getDate } from '../../api/index'
+// import { getBanner, getUserdata, getVideodata, getOrderdata, getDate } from '../../api/index'
+import { getBanner } from '../../api/index'
 // import * as echarts from 'echarts'
 import Echart from '@/components/ECharts.vue'
 export default {
@@ -143,13 +144,13 @@ export default {
   methods: {
     getTableData () {
       // 111111
-      getBanner().then((res) => {
+      getBanner({ name: 'tabledata' }).then((res) => {
         console.log(res)
         this.tableData = res
         console.log(this.tableData)
       })
       // 222222
-      getOrderdata().then((res) => {
+      getBanner({ name: 'orderdata' }).then((res) => {
         // console.log(res)
         // 折线图的展示
         const order = res
@@ -164,7 +165,7 @@ export default {
           })
         })
       })
-      getDate().then((res) => {
+      getBanner({ name: 'date' }).then((res) => {
         // 传给组件的值
         // console.log(res)
         const date = []
@@ -175,7 +176,7 @@ export default {
         this.echartData.order.xData = date
       })
       // 33333
-      getUserdata().then((res) => {
+      getBanner({ name: 'userdata' }).then((res) => {
         // 用户图
         this.echartData.user.xData = res.map((item) => item.data)
         this.echartData.user.series.push({
@@ -190,7 +191,7 @@ export default {
         })
       })
       // 444444
-      getVideodata().then((res) => {
+      getBanner({ name: 'videodata' }).then((res) => {
         // console.log(res.data.data)
         this.echartData.video.series.push({
           data: res,
