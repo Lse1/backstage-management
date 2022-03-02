@@ -145,9 +145,9 @@ export default {
     getTableData () {
       // 111111
       getBanner({ name: 'tabledata' }).then((res) => {
-        console.log(res)
+        // console.log(res)
         this.tableData = res
-        console.log(this.tableData)
+        // console.log(this.tableData)
       })
       // 222222
       getBanner({ name: 'orderdata' }).then((res) => {

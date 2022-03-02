@@ -3,8 +3,8 @@ import router from '../router'
 import { Message } from 'element-ui'
 // import Vue from 'vue'
 
-axios.defaults.baseURL = 'http://localhost:3002/'
-// axios.defaults.baseURL = 'http://106.55.188.48:3002/'
+// axios.defaults.baseURL = 'http://localhost:3002/'
+axios.defaults.baseURL = 'http://106.55.188.48:3002/'
 // axios.defaults.baseURL = 'http://106.55.188.48:3000/'
 axios.defaults.timeout = 5000
 // let count = 0

@@ -34,6 +34,8 @@ export const getCommodityIncrease = (data) => Network.get('/commodity/increase',
 export const getCommodityDelete = (data) => Network.get('/commodity/delete', data)
 export const getCommodityRevise = (data) => Network.get('/commodity/revise', data)
 export const getCommoditySearch = (data) => Network.get('/commodity/search', data)
+export const getCreate = (data) => Network.get('/create', data)
+export const getColumnName = (data) => Network.get('/commodity/columnname', data)
 export const getPost = (data) => {
   // console.log('result')
   return new Promise(function (resolve, reject) {

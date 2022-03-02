@@ -72,7 +72,7 @@ export default {
           // alert('submit!')
           getLogin({ ruleForm: this.ruleForm })
             .then((res) => {
-              console.log(res)
+              // console.log(res)
               localStorage.setItem('token', res.token)
               // history.go(0)
               this.$router.push({ name: 'home' })
